@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+import { Fuel, Coffee, Bed, Wrench, WashingMachine, Landmark, Mail } from '@lucide/astro';
+---
+
+<Layout title="Início">
+  <!-- Hero Section -->
+  <section class="relative bg-blue-900 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <!-- Placeholder para imagem real do posto -->
+    <div class="absolute inset-0 bg-[url('/hero-placeholder.jpg')] bg-cover bg-center"></div>
+    
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+        Muito mais que um posto.
+      </h1>
+      <p class="text-lg md:text-xl max-w-2xl text-blue-100 mb-8">
+        No {siteConfig.name}, você encontra abastecimento, descanso, conveniência e serviços automotivos no mesmo lugar, em Cabedelo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#servicos" class="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+          Conhecer Serviços
+        </a>
+        <a href="/pousada-do-sol" class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+          Ver Pousada do Sol
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pousada Highlight -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-orange-50 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 border border-orange-100">
+        <div class="flex-1">
+          <div class="inline-flex items-center gap-2 text-orange-600 font-bold mb-4">
+            <Bed class="w-6 h-6" /> Destaque
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">{siteConfig.businesses.pousada.name}</h2>
+          <p class="text-gray-600 mb-6 text-lg">
+            Hospedagem prática e confortável anexa ao posto. Temos {siteConfig.businesses.pousada.rooms} quartos equipados com ar-condicionado e banheiro privativo para o seu descanso.
+          </p>
+          <a href="/pousada-do-sol" class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-700 transition">
+            Detalhes e Reservas
+          </a>
+        </div>
+        <div class="flex-1 w-full bg-gray-200 rounded-xl h-64 md:h-80 flex items-center justify-center text-gray-400">
+          [Espaço para Foto da Pousada]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grade de Serviços -->
+  <section id="servicos" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Tudo no Mesmo Endereço</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Conveniência -->
+        <a href="/conveniencia" class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 block">
+          <Coffee class="w-10 h-10 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
+          <h3 class="text-xl font-bold mb-2">Conveniência {siteConfig.businesses.conveniencia.name}</h3>
+          <p class="text-gray-600">{siteConfig.businesses.conveniencia.description}</p>
+        </a>
+
+        <!-- Troca de Óleo -->
+        <a href="/troca-de-oleo" class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 block">
+          <Wrench class="w-10 h-10 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
+          <h3 class="text-xl font-bold mb-2">{siteConfig.businesses.trocaOleo.name}</h3>
+          <p class="text-gray-600">Manutenção preventiva, lubrificantes de qualidade e atendimento especializado.</p>
+        </a>
+
+        <!-- Lavanderia -->
+        <a href="/lavanderia" class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 block">
+          <WashingMachine class="w-10 h-10 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
+          <h3 class="text-xl font-bold mb-2">{siteConfig.businesses.lavanderia.name}</h3>
+          <p class="text-gray-600">Roupas limpas com praticidade enquanto você utiliza nossos outros serviços.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

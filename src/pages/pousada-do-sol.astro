@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+import { Check, Calendar } from '@lucide/astro';
+
+const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(siteConfig.businesses.pousada.bookingMessage)}`;
+---
+
+<Layout 
+  title={siteConfig.businesses.pousada.name}
+  description="Hospedagem prática em Cabedelo. Quartos com ar-condicionado e banheiro privativo."
+>
+  <div class="bg-orange-50 py-12 border-b border-orange-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        {siteConfig.businesses.pousada.name}
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl">
+        Uma opção prática de hospedagem em Cabedelo para quem está viajando a trabalho, conhecendo a região ou precisa de um lugar confortável para descansar.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col lg:flex-row gap-12">
+    <!-- Informações -->
+    <div class="flex-1">
+      <h2 class="text-2xl font-bold mb-6">Nossas Acomodações</h2>
+      <p class="text-gray-600 mb-6">
+        Contamos com {siteConfig.businesses.pousada.rooms} quartos projetados para oferecer o essencial para uma excelente noite de sono.
+      </p>
+      
+      <ul class="space-y-4 mb-8">
+        {siteConfig.businesses.pousada.amenities.map((amenity) => (
+          <li class="flex items-center gap-3 text-gray-700">
+            <div class="bg-orange-100 p-1 rounded-full text-orange-600">
+              <Check class="w-5 h-5" />
+            </div>
+            {amenity}
+          </li>
+        ))}
+      </ul>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+        <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+          <Calendar class="w-5 h-5 text-orange-600" /> Reservas Diretas
+        </h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          O atendimento para reservas é feito exclusivamente via WhatsApp da administração do posto.
+        </p>
+        <a 
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer" 
+          class="block w-full text-center bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition"
+        >
+          Consultar Disponibilidade
+        </a>
+      </div>
+    </div>
+
+    <!-- Galeria Placeholder -->
+    <div class="flex-1">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-2 bg-gray-200 rounded-xl h-64 flex items-center justify-center text-gray-500">Foto Quarto Principal</div>
+        <div class="bg-gray-200 rounded-xl h-40 flex items-center justify-center text-gray-500">Foto Banheiro</div>
+        <div class="bg-gray-200 rounded-xl h-40 flex items-center justify-center text-gray-500">Foto Fachada</div>
+      </div>
+      <p class="text-xs text-gray-400 mt-4 text-center">* Fotos ilustrativas aguardando material fotográfico oficial.</p>
+    </div>
+  </div>
+</Layout>

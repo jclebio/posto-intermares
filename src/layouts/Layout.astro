@@ -1,0 +1,47 @@
+---
+import { siteConfig } from '../config/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = siteConfig.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Básico -->
+    <title>{title} | {siteConfig.name}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    
+    <link rel="canonical" href={new URL(Astro.url.pathname, siteConfig.url)} />
+  </head>
+  <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen antialiased">
+    {siteConfig.isPrototype && (
+      <div class="bg-yellow-400 text-yellow-900 text-sm font-bold text-center py-1">
+        Protótipo Demonstrativo - Dados sujeitos a alteração
+      </div>
+    )}
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

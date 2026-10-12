@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+import { Coffee, ShoppingBasket, ExternalLink, Clock, MapPin, Beer } from '@lucide/astro';
+---
+
+<Layout 
+  title="Conveniência Hora H"
+  description="Conveniência completa em Cabedelo. Lanches, bebidas geladas, produtos automotivos e muito mais."
+>
+  <!-- Hero Section -->
+  <div class="bg-blue-900 py-16 border-b-4 border-orange-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <ShoppingBasket class="w-16 h-16 text-orange-500 mx-auto mb-6" />
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Conveniência {siteConfig.businesses.conveniencia.name}
+      </h1>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+        A parada perfeita para o seu dia a dia ou para a sua viagem. Tudo o que você precisa, rápido e prático.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col lg:flex-row gap-12 items-start">
+      
+      <!-- Conteúdo Principal -->
+      <div class="flex-1 space-y-8">
+        <h2 class="text-3xl font-bold text-gray-900">O que você encontra aqui</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Card Lanches -->
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-start gap-4 hover:shadow-md transition">
+            <Coffee class="w-8 h-8 text-orange-600 flex-shrink-0" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Lanches e Cafés</h3>
+              <p class="text-gray-600 text-sm">Salgados, doces, chocolates e aquele café passado na hora para dar energia.</p>
+            </div>
+          </div>
+          
+          <!-- Card Bebidas -->
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-start gap-4 hover:shadow-md transition">
+            <Beer class="w-8 h-8 text-orange-600 flex-shrink-0" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Bebidas Geladas</h3>
+              <p class="text-gray-600 text-sm">Cervejas, refrigerantes, sucos e água sempre na temperatura ideal para o clima.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action: Cardápio Digital -->
+        <div class="bg-orange-50 border border-orange-200 rounded-2xl p-8 mt-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Conheça nossos produtos</h3>
+            <p class="text-gray-700 max-w-lg">
+              Acesse nosso cardápio digital completo para conferir as opções de lanches, bebidas e promoções disponíveis na conveniência.
+            </p>
+          </div>
+          <a 
+            href="https://cardapiohorah.duckdns.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-orange-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-700 transition shadow-md hover:shadow-lg flex-shrink-0"
+          >
+            Ver Cardápio Digital
+            <ExternalLink class="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Barra Lateral Informativa -->
+      <div class="w-full lg:w-1/3 bg-gray-50 p-6 rounded-2xl border border-gray-200">
+        <h3 class="font-bold text-xl mb-6">Informações</h3>
+        
+        <ul class="space-y-6">
+          <li class="flex items-start gap-4">
+            <Clock class="w-6 h-6 text-blue-600 mt-1" />
+            <div>
+              <h4 class="font-bold text-gray-900">Horário de Funcionamento</h4>
+              <p class="text-gray-600 text-sm mt-1">{siteConfig.businesses.conveniencia.hours}</p>
+            </div>
+          </li>
+          
+          <li class="flex items-start gap-4">
+            <MapPin class="w-6 h-6 text-blue-600 mt-1" />
+            <div>
+              <h4 class="font-bold text-gray-900">Localização</h4>
+              <p class="text-gray-600 text-sm mt-1">Anexa ao {siteConfig.name}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</Layout>
