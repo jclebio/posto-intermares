@@ -58,14 +58,46 @@ const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeU
       </div>
     </div>
 
-    <!-- Galeria Placeholder -->
-    <div class="flex-1">
-      <div class="grid grid-cols-2 gap-4">
-        <div class="col-span-2 bg-gray-200 rounded-xl h-64 flex items-center justify-center text-gray-500">Foto Quarto Principal</div>
-        <div class="bg-gray-200 rounded-xl h-40 flex items-center justify-center text-gray-500">Foto Banheiro</div>
-        <div class="bg-gray-200 rounded-xl h-40 flex items-center justify-center text-gray-500">Foto Fachada</div>
-      </div>
-      <p class="text-xs text-gray-400 mt-4 text-center">* Fotos ilustrativas aguardando material fotográfico oficial.</p>
+<!-- Galeria de Fotos -->
+<div class="flex-1">
+  <div class="grid grid-cols-2 gap-4">
+
+    <!-- Quarto Principal -->
+    <div class="col-span-2 overflow-hidden rounded-xl h-64">
+      <img
+        src="/camas.jpg"
+        alt="Quarto principal da hospedagem"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
     </div>
+
+    <!-- Banheiro -->
+    <div class="overflow-hidden rounded-xl h-40">
+      <img
+        src="/banheiro.jpg"
+        alt="Banheiro da hospedagem"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Fachada -->
+    <div class="overflow-hidden rounded-xl h-40">
+      <img
+        src="/banheiro1.jpg"
+        alt="Fachada da hospedagem"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
   </div>
+
+  <p class="text-xs text-gray-400 mt-4 text-center">
+    * Fotos ilustrativas aguardando material fotográfico oficial.
+  </p>
+</div>
+</div>
+
 </Layout>
