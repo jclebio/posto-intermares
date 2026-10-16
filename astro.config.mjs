@@ -1,12 +1,10 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+// https://astro.build
 export default defineConfig({
-  integrations: [tailwind()],
   vite: {
-    ssr: {
-      noExternal: ['@lucide/astro', 'lucide-astro'],
-    },
+    plugins: [tailwindcss()],
   },
 });
+

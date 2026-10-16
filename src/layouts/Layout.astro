@@ -32,7 +32,7 @@ const { title, description = siteConfig.description } = Astro.props;
     
     <link rel="canonical" href={new URL(Astro.url.pathname, siteConfig.url)} />
   </head>
-  <body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen antialiased">
+    <body class="bg-slate-900 text-slate-50 flex flex-col min-h-screen antialiased">
     {siteConfig.isPrototype && (
       <div class="bg-yellow-400 text-yellow-900 text-sm font-bold text-center py-1">
         Protótipo Demonstrativo - Dados sujeitos a alteração
