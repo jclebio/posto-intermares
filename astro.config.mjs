@@ -1,10 +1,11 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build
+// https://astro.build/config
 export default defineConfig({
+  site: 'https://postointermares.duckdns.org',
   vite: {
     plugins: [tailwindcss()],
   },
 });
-

@@ -1,51 +1,102 @@
 ---
 import { siteConfig } from '../config/site';
 import { Menu, X } from '@lucide/astro';
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Início', href: '/' },
+  { label: siteConfig.businesses?.pousada?.name || 'Pousada do Sol', href: '/pousada-do-sol' },
+  { label: 'Conveniência', href: '/conveniencia' },
+  { label: 'Troca de Óleo', href: '/troca-de-oleo' },
+  { label: 'Contato', href: '/contato' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
 ---
 
-<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+<header class="bg-white border-b border-zinc-200 sticky top-0 z-50 shadow-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
-     <!-- Logotipo Oficial -->
-<a href="/" class="flex items-center">
-  <img 
-    src="/logo-postointermares.jpg" 
-    alt="Logo Posto Intermares" 
-    class="h-12 w-auto object-contain"
-  />
-</a>
+      <!-- Logotipo Oficial -->
+      <a href="/" class="flex items-center">
+        <img 
+          src="/logo-postointermares.jpg" 
+          alt={`Logo ${siteConfig.name}`} 
+          width="180"
+          height="48"
+          class="h-12 w-auto object-contain"
+        />
+      </a>
 
       <!-- Menu Desktop -->
-      <nav class="hidden md:flex gap-6 items-center">
-        <a href="/" class="text-gray-600 hover:text-blue-900 font-medium">Início</a>
-        <a href="/pousada-do-sol" class="text-gray-600 hover:text-blue-900 font-medium">Pousada do Sol</a>
-        <a href="/conveniencia" class="text-gray-600 hover:text-blue-900 font-medium">Conveniência</a>
-        <a href="/contato" class="text-gray-600 hover:text-blue-900 font-medium">Contato</a>
+      <nav class="hidden md:flex gap-6 items-center" aria-label="Menu principal">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "font-medium transition-colors py-1 border-b-2",
+              isActive(item.href)
+                ? "text-zinc-900 border-red-600 font-bold"
+                : "text-zinc-600 border-transparent hover:text-red-600"
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
 
       <!-- Botão Mobile -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600" aria-label="Menu">
-        <Menu class="w-6 h-6" />
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-zinc-600 hover:text-zinc-900 focus:outline-none"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <Menu id="icon-menu" class="w-6 h-6" />
+        <X id="icon-close" class="w-6 h-6 hidden" />
       </button>
     </div>
   </div>
 
-  <!-- Mobile Menu (JS Simples) -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-    <div class="px-4 py-4 flex flex-col gap-4">
-      <a href="/" class="block text-gray-800 font-medium">Início</a>
-      <a href="/pousada-do-sol" class="block text-gray-800 font-medium">Pousada do Sol</a>
-      <a href="/conveniencia" class="block text-gray-800 font-medium">Conveniência</a>
-      <a href="/contato" class="block text-gray-800 font-medium">Contato</a>
+  <!-- Mobile Menu -->
+  <nav
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-zinc-100 shadow-lg"
+    aria-label="Menu mobile"
+  >
+    <div class="px-4 py-4 flex flex-col gap-3">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "block py-2 px-3 rounded-lg font-medium transition-colors",
+            isActive(item.href)
+              ? "bg-red-50 text-red-700 font-bold border-l-4 border-red-600"
+              : "text-zinc-800 hover:bg-zinc-50"
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
     </div>
-  </div>
+  </nav>
 </header>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
   
   btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+    const isHidden = menu?.classList.toggle('hidden');
+    iconMenu?.classList.toggle('hidden', !isHidden);
+    iconClose?.classList.toggle('hidden', isHidden);
+    btn.setAttribute('aria-expanded', String(!isHidden));
   });
 </script>
