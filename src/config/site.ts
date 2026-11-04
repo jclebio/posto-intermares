@@ -37,6 +37,18 @@ export const siteConfig = {
       name: "Lavanderia",
       hours: "08:00 às 18:00",
       instagramUrl: "https://www.instagram.com/lavointermares/"
-    }
+    },
+    deliveryAguaGas: {
+      name: "Delivery de Água e Gás",
+      hours: "07:00h às 18:30h",
+      description: "Entrega rápida de água mineral e gás de cozinha em Intermares e região.",
+      items: [
+    { type: "Gás de Cozinha (P13)", desc: "Botijão 13kg" },
+    { type: "Gás de Cozinha (P8)", desc: "Botijão 8kg" },
+    { type: "Gás de Cozinha (P5)", desc: "Botijão 5kg" },
+    { type: "Água Mineral (20L)", desc: "Galão de 20 litros. Marcas: Indaiá, Sublime, Itacoatiara, Ideal, Platina" },
+    { type: "Produtos de Conveniência", desc: "Delivery de produtos de conveniência" }
+]
+}
   }
 };

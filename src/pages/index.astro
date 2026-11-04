@@ -22,35 +22,37 @@ const wazeUrl = siteConfig.wazeLink || "https://waze.com/ul?q=Av.%20Mar%20Vermel
 ---
 
 <Layout title="Início">
-  <!-- Hero Section -->
+<!-- Hero Section -->
   <section class="relative bg-zinc-900 text-white overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-900/75 to-zinc-900/95 z-10"></div>
-    <!-- Placeholder para imagem real do posto -->
+    <!-- Película mais leve para deixar a imagem de fundo mais clara e visível -->
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-950/70 via-zinc-950/50 to-zinc-950/30 z-10"></div>
+    
+    <!-- Imagem de fundo real -->
     <div class="absolute inset-0 bg-[url('/hero-placeholder.jpg')] bg-cover bg-center"></div>
     
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-center text-center">
-      <span class="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/40 text-red-300 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+      <span class="inline-flex items-center gap-2 bg-red-600/30 border border-red-500/50 text-red-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-xs">
         <MapPin class="w-4 h-4 text-red-400" /> Complexo de Serviços em Intermares, Cabedelo/PB
       </span>
 
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
         Muito mais que um posto.
       </h1>
 
-      <p class="text-lg md:text-xl max-w-2xl text-zinc-300 mb-8 leading-relaxed">
+      <p class="text-lg md:text-xl max-w-2xl text-zinc-100 mb-8 leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
         No {siteConfig.name}, você encontra abastecimento, descanso, conveniência e serviços automotivos no mesmo lugar, em Cabedelo.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
         <a
           href="#servicos"
-          class="bg-white text-zinc-900 px-6 py-3.5 rounded-xl font-semibold hover:bg-zinc-100 transition shadow-sm"
+          class="bg-white text-zinc-900 px-6 py-3.5 rounded-xl font-semibold hover:bg-zinc-100 transition shadow-lg"
         >
           Conhecer Serviços
         </a>
         <a
           href="/pousada-do-sol"
-          class="bg-red-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-red-700 transition shadow-sm"
+          class="bg-red-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-red-700 transition shadow-lg shadow-red-950/50"
         >
           Ver {siteConfig.businesses.pousada.name}
         </a>

@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+import { Flame, Droplets, Clock, MapPin, MessageCircle, CheckCircle2 } from '@lucide/astro';
+
+const whatsappNumber = siteConfig.contact.whatsapp;
+---
+
+<Layout 
+  title="Delivery de Água e Gás"
+  description="Entrega rápida de água mineral e gás de cozinha em Intermares e Cabedelo. Peça pelo WhatsApp."
+>
+  <!-- Hero Section -->
+  <section class="bg-zinc-900 py-16 border-b-4 border-red-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex p-4 rounded-2xl bg-red-600/15 border border-red-500/30 mb-6">
+        <Flame class="w-12 h-12 text-red-500" />
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Delivery de Água e Gás
+      </h1>
+      <p class="text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+        Precisou de gás de cozinha ou água mineral? Receba em casa com rapidez e a confiança do {siteConfig.name}.
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <section class="bg-white text-zinc-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-12 items-start">
+        
+        <!-- Coluna Esquerda: O que entregamos -->
+        <div class="flex-1 space-y-8">
+          <div>
+            <h2 class="text-3xl font-bold text-zinc-900 mb-2">Produtos para Entrega</h2>
+            <p class="text-zinc-600">
+              Trabalhamos com marcas certificadas e peso exato para garantir a sua segurança e comodidade.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-zinc-50 p-6 rounded-2xl border border-zinc-200/80 flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-red-100 text-red-600 shrink-0">
+                <Flame class="w-6 h-6" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-zinc-900 mb-1">Gás de Cozinha (P13)</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                  Botijão de 13kg lacrado, com controle de peso e total segurança para sua residência ou comércio.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-zinc-50 p-6 rounded-2xl border border-zinc-200/80 flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-red-100 text-red-600 shrink-0">
+                <Droplets class="w-6 h-6" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-zinc-900 mb-1">Água Mineral (20L e 10L)</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">
+                  Galões de água mineral com procedência garantida para bebedouros e consumo diário.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-zinc-50 rounded-2xl p-6 sm:p-8 border border-zinc-200">
+            <h3 class="font-bold text-lg text-zinc-900 mb-4 flex items-center gap-2">
+              <CheckCircle2 class="w-5 h-5 text-red-600" /> Área de Atendimento
+            </h3>
+            <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+              Atendemos todo o bairro de <strong>Intermares</strong> e imediações em <strong>Cabedelo</strong>. Consulte a taxa e o tempo estimado de entrega para a sua rua diretamente no botão abaixo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Formulário de Pedido Rápido -->
+        <aside class="w-full lg:w-2/5 space-y-6">
+          <div class="bg-zinc-50 p-6 sm:p-8 rounded-2xl border border-zinc-200 shadow-xs">
+            <h3 class="font-bold text-xl text-zinc-900 mb-2">Fazer Pedido Rápido</h3>
+            <p class="text-sm text-zinc-600 mb-6">
+              Selecione o produto e envie os dados direto para o nosso WhatsApp:
+            </p>
+
+            <form id="form-delivery" class="space-y-4">
+              <div>
+                <label for="produto" class="block text-xs font-bold uppercase text-zinc-600 mb-1">
+                  Produto Desejado
+                </label>
+                <select
+                  id="produto"
+                  class="w-full bg-white rounded-xl border border-zinc-300 px-3.5 py-2.5 text-zinc-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
+                >
+                  <option value="Gás de Cozinha (P13)" selected>Gás de Cozinha (P13 - 13kg)</option>
+                  <option value="Gás de Cozinha (P8)" > Gás de Cozinha (P8 - 8kg)</option>
+                  <option value="Água Mineral 20L INDAIA (Galão)">Água Mineral 20L INDAIA (Galão)</option>
+                  <option value="Água Mineral 20L (informar marca)">Água Mineral 20L (informar marca)</option>
+                  <option value="Água e Gás (Combo)">Água e Gás (Combo)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="quantidade" class="block text-xs font-bold uppercase text-zinc-600 mb-1">
+                  Quantidade
+                </label>
+                <input
+                  type="number"
+                  id="quantidade"
+                  min="1"
+                  value="1"
+                  required
+                  class="w-full bg-white rounded-xl border border-zinc-300 px-3.5 py-2.5 text-zinc-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
+                />
+              </div>
+
+              <div>
+                <label for="endereco" class="block text-xs font-bold uppercase text-zinc-600 mb-1">
+                  Endereço de Entrega (Rua, Nº, Bairro)
+                </label>
+                <input
+                  type="text"
+                  id="endereco"
+                  required
+                  placeholder="Ex: Av. Mar Vermelho, 400 - Intermares"
+                  class="w-full bg-white rounded-xl border border-zinc-300 px-3.5 py-2.5 text-zinc-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
+                />
+              </div>
+
+              <div>
+                <label for="pagamento" class="block text-xs font-bold uppercase text-zinc-600 mb-1">
+                  Forma de Pagamento
+                </label>
+                <select
+                  id="pagamento"
+                  class="w-full bg-white rounded-xl border border-zinc-300 px-3.5 py-2.5 text-zinc-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-600"
+                >
+                  <option value="Pix" selected>Pix na Entrega</option>
+                  <option value="Cartão de Crédito">Cartão de Crédito (Leva maquininha)</option>
+                  <option value="Cartão de Débito">Cartão de Débito (Leva maquininha)</option>
+                  <option value="Dinheiro">Dinheiro (Informar troco)</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <MessageCircle class="w-5 h-5" />
+                <span>Pedir pelo WhatsApp</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Informações de Horário -->
+          <div class="bg-zinc-50 p-6 rounded-2xl border border-zinc-200">
+            <div class="flex items-start gap-3">
+              <Clock class="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+              <div>
+                <h4 class="font-bold text-sm text-zinc-900">Horário do Delivery</h4>
+                <p class="text-zinc-600 text-sm mt-0.5">Segunda a Sábado, das 07:00 às 20:00.</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ whatsappNumber }}>
+  const form = document.getElementById('form-delivery');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const produto = document.getElementById('produto')?.value || '';
+    const quantidade = document.getElementById('quantidade')?.value || '1';
+    const endereco = document.getElementById('endereco')?.value || '';
+    const pagamento = document.getElementById('pagamento')?.value || '';
+
+    const mensagem =
+      `📦 *Novo Pedido de Delivery (Site)*\n\n` +
+      `• *Produto:* ${produto}\n` +
+      `• *Quantidade:* ${quantidade}\n` +
+      `• *Endereço:* ${endereco}\n` +
+      `• *Pagamento:* ${pagamento}`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+</script>
